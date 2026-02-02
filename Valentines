@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Zoey 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --pink: #ff6fae;
+  --soft-pink: #ffe6ef;
+  --red: #ff4d6d;
+  --text: #222;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(180deg, #fff, var(--soft-pink));
+  animation: bgMove 12s ease-in-out infinite alternate;
+}
+
+@keyframes bgMove {
+  from { background-position: top; }
+  to { background-position: bottom; }
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  pointer-events: none;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+h1, h2, p {
+  color: var(--text);
+  max-width: 520px;
+}
+
+h1 {
+  font-size: 2.1rem;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 14px 28px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 24px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.next {
+  background: var(--pink);
+  color: white;
+  box-shadow: 0 12px 30px rgba(255,111,174,0.35);
+}
+
+.buttons {
+  display: flex;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.yes {
+  background: var(--red);
+  color: white;
+  animation: pulse 1.6s infinite;
+}
+
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 0 rgba(255,77,109,0.4); }
+  50% { box-shadow: 0 0 25px rgba(255,77,109,0.7); }
+}
+
+.no {
+  background: #eee;
+  color: #555;
+}
+
+.floating-heart {
+  position: absolute;
+  bottom: -30px;
+  font-size: 22px;
+  opacity: 0.5;
+  animation: floatUp 7s linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 0.6; }
+  to { transform: translateY(-120vh); opacity: 0; }
+}
+
+/* Hidden message */
+.hidden {
+  opacity: 0;
+  margin-top: 18px;
+  font-size: 0.95rem;
+  transition: opacity 0.8s ease;
+  color: #444;
+}
+
+.hidden.show {
+  opacity: 1;
+}
+
+.secret-hint {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-top: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SLIDES -->
+<div class="slide active">
+  <h2>So… this really did start as a joke 😅</h2>
+  <button class="next">NEXT ➡️</button>
+</div>
+
+<div class="slide">
+  <h2>Like… zero expectations</h2>
+  <p>Just vibes. Just laughs.</p>
+  <button class="next">NEXT ➡️</button>
+</div>
+
+<div class="slide">
+  <h2>But somewhere between the talking…</h2>
+  <p>And the random moments</p>
+  <button class="next">NEXT ➡️</button>
+</div>
+
+<div class="slide">
+  <h2>It turned into something real 💘</h2>
+  <p>And honestly… I didn’t mind at all</p>
+  <button class="next">NEXT ➡️</button>
+</div>
+
+<div class="slide">
+  <h1>So now I gotta ask…</h1>
+  <p>No jokes this time</p>
+  <button class="next">NEXT ➡️</button>
+</div>
+
+<div class="slide" id="question">
+  <h1>Zoey…</h1>
+  <h2>Will you be my Valentine? 💖</h2>
+  <div class="buttons">
+    <button class="yes">YES 💕</button>
+    <button class="no">NO 😐</button>
+  </div>
+</div>
+
+<div class="slide">
+  <h1>I knew it 💞</h1>
+  <p>That smile gave you away</p>
+  <button class="next">NEXT ➡️</button>
+</div>
+
+<div class="slide">
+  <h2>You make things feel lighter</h2>
+  <p>Even without trying</p>
+  <button class="next">NEXT ➡️</button>
+</div>
+
+<div class="slide">
+  <h2>Even on the quiet days</h2>
+  <p>You matter to me, Zoey</p>
+  <button class="next">NEXT ➡️</button>
+</div>
+
+<div class="slide">
+  <h2>I’m really glad it’s you</h2>
+  <p>More than you probably know</p>
+  <button class="next">NEXT ➡️</button>
+</div>
+
+<div class="slide">
+  <h2>Happy Valentine’s Day ❤️</h2>
+  <p>This one’s just for you</p>
+  <button class="next">NEXT ➡️</button>
+</div>
+
+<!-- FINAL SLIDE WITH HIDDEN MESSAGE -->
+<div class="slide" id="final">
+  <h1>So yeah…</h1>
+  <h2>Zoey, you’re my Valentine 💖</h2>
+
+  <div class="secret-hint">tap the heart once more</div>
+
+  <div class="hidden" id="secret">
+    I don’t say this out loud much,  
+    but you really do mean more to me than you think.  
+    And I’m glad I get to choose you today. 💗
+  </div>
+
+  <div class="buttons">
+    <button onclick="location.reload()">Replay 💫</button>
+    <button onclick="revealSecret()">💖</button>
+  </div>
+</div>
+
+<script>
+const slides = document.querySelectorAll(".slide");
+let index = 0;
+
+document.querySelectorAll(".next").forEach(btn => {
+  btn.onclick = () => {
+    slides[index].classList.remove("active");
+    index++;
+    slides[index].classList.add("active");
+  };
+});
+
+const noMessages = [
+  "Hmm… that felt fake",
+  "Try again 👀",
+  "Be honest now",
+  "You smiling right now",
+  "Don’t lie 😏",
+  "Yeah… I don’t believe you",
+  "Okay last chance"
+];
+
+let noCount = 0;
+const yesBtn = document.querySelector(".yes");
+const noBtn = document.querySelector(".no");
+
+noBtn.onclick = () => {
+  if (noCount < noMessages.length) {
+    noBtn.innerText = noMessages[noCount];
+    noCount++;
+    yesBtn.style.transform = `scale(${1 + noCount * 0.08})`;
+    noBtn.style.transform = `scale(${1 - noCount * 0.05})`;
+  }
+};
+
+yesBtn.onclick = () => {
+  slides[index].classList.remove("active");
+  index++;
+  slides[index].classList.add("active");
+};
+
+function revealSecret() {
+  document.getElementById("secret").classList.add("show");
+}
+
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "floating-heart";
+  heart.innerText = "💗";
+  heart.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 7000);
+}, 850);
+</script>
+
+</body>
+</html>
